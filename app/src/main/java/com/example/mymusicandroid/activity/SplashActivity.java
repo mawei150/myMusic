@@ -9,7 +9,7 @@ import com.example.mymusicandroid.R;
  * @author MW
  * @date 2020/8/10
  * <p>
- * 描述：引导界面w
+ * 描述：启动界面
  */
 public class SplashActivity extends AppCompatActivity {
 
