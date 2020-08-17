@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.mymusicandroid.R;
+import com.example.mymusicandroid.activity.base.BaseCommonActivity;
 
 /**
  * @author MW
@@ -18,7 +19,7 @@ import com.example.mymusicandroid.R;
  * <p>
  * 描述：启动界面
  */
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends BaseCommonActivity {
 
     private static final int MESSAGE_TEST = 100;
     @SuppressLint("HandlerLeak")
@@ -80,22 +81,4 @@ public class SplashActivity extends AppCompatActivity {
         finish();
     }
 
-    /**
-     * 启动界面
-     *
-     * @param clazz
-     */
-    protected void startActivity(Class<?> clazz) {
-        startActivity(new Intent(SplashActivity.this, clazz));
-    }
-
-    /**
-     * 启动界面并关闭当前界面
-     *
-     * @param clazz
-     */
-    protected void startActivityAfterFinishThis(Class<?> clazz) {
-        startActivity(new Intent(SplashActivity.this, clazz));
-        finish();
-    }
 }
