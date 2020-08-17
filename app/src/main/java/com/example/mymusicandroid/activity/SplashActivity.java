@@ -43,23 +43,8 @@ public class SplashActivity extends BaseCommonActivity {
 
 
     private void intView() {
-        //设置界面全屏
-        View decorview = getWindow().getDecorView();//获取根布局
 
-        if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) {//19->4.4
-            decorview.setSystemUiVisibility(View.GONE);
-        } else if (Build.VERSION.SDK_INT >= 19) {
-
-            //19及以上版本
-            //SYSTEM_UI_FLAG_HIDE_NAVIGATION:隐藏导航栏
-            //SYSTEM_UI_FLAG_IMMERSIVE_STICKY:从状态栏下拉会半透明悬浮显示一会儿状态栏和导航栏
-            //SYSTEM_UI_FLAG_FULLSCREEN:全屏
-            int options = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
-                    View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY |
-                    View.SYSTEM_UI_FLAG_FULLSCREEN;
-            //设置到控件
-            decorview.setSystemUiVisibility(options);
-        }
+        fullScreen();//全屏
 
         handler.postDelayed(new Runnable() {
             @Override

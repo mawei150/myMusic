@@ -20,7 +20,7 @@ import com.example.mymusicandroid.activity.base.BaseCommonActivity;
 
 public class GuideActivity extends BaseCommonActivity implements View.OnClickListener {
 
-    private static final String TAG =" GuideActivity" ;
+    private static final String TAG = " GuideActivity";
     private Button bt_login_or_register;
     private Button bt_enter;
 
@@ -37,17 +37,17 @@ public class GuideActivity extends BaseCommonActivity implements View.OnClickLis
 
 
     }
+
     @Override
     protected void initView() {
-        //隐藏状态栏
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        hideStatsBar();//隐藏状态栏
         //找控件
 //登录注册按钮
-        bt_login_or_register=findViewById(R.id.bt_login_or_register);
+        bt_login_or_register = findViewById(R.id.bt_login_or_register);
 
 //注册按钮
-        bt_enter=findViewById(R.id.bt_enter);
+        bt_enter = findViewById(R.id.bt_enter);
 //设置点击事件
 //设置登录注册按钮点击事件
         bt_login_or_register.setOnClickListener(this);
@@ -58,6 +58,7 @@ public class GuideActivity extends BaseCommonActivity implements View.OnClickLis
 
     /**
      * 点击回调事件
+     *
      * @param view
      */
     @Override
@@ -66,8 +67,7 @@ public class GuideActivity extends BaseCommonActivity implements View.OnClickLis
         //所以这里需要区分到底是哪一个按钮点击
         switch (view.getId()) {
             case R.id.bt_login_or_register:
-                //注册登录按钮点击
-                Log.d(TAG, "onClick login or register");
+                startActivity(LoginOrRegisterActivity.class);
                 break;
             case R.id.bt_enter:
                 //进入按钮
