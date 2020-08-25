@@ -1,9 +1,10 @@
 package com.example.mymusicandroid.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.mymusicandroid.R;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * @author MW

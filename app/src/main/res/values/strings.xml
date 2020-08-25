@@ -281,4 +281,5 @@
     <string name="hint_enter_message">请输入你要发送消息.</string>
     <string name="error_send_message">发送失败，请稍后再试！</string>
 
+
 </resources>

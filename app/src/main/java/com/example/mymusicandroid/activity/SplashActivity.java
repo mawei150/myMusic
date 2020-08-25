@@ -1,14 +1,9 @@
 package com.example.mymusicandroid.activity;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.os.Build;
+import android.annotation.SuppressLint;;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
 
 import com.example.mymusicandroid.R;
 import com.example.mymusicandroid.activity.base.BaseCommonActivity;
@@ -59,11 +54,24 @@ public class SplashActivity extends BaseCommonActivity {
     }
 
 
+
+    @Override
+    protected void initDatum() {
+        super.initDatum();
+    }
+
+
     private void next() {
-//        Toast.makeText(SplashActivity.this, "我是是", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(SplashActivity.this, GuideActivity.class);
-        startActivity(intent);
-        finish();
+
+
+//        if (mPreferenceUtil.isShowGuide()) {
+//            //显示引导界面
+            startActivityAfterFinishThis(GuideActivity.class);
+//        } else {
+//            //登录/注册页面
+//            startActivityAfterFinishThis(LoginOrRegisterActivity.class);
+//        }
+
     }
 
 }

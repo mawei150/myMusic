@@ -1,15 +1,18 @@
 package com.example.mymusicandroid.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.FrameLayout;
 
+import com.example.mymusicandroid.MainActivity;
 import com.example.mymusicandroid.R;
 import com.example.mymusicandroid.activity.base.BaseActivity;
 import com.example.mymusicandroid.activity.base.BaseCommonActivity;
+import com.example.mymusicandroid.fragment.GuideFragment;
+import com.example.mymusicandroid.util.PreferenceUtil;
 
 /**
  * @author MW
@@ -23,6 +26,7 @@ public class GuideActivity extends BaseCommonActivity implements View.OnClickLis
     private static final String TAG = " GuideActivity";
     private Button bt_login_or_register;
     private Button bt_enter;
+    private FrameLayout mFlContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,18 +46,17 @@ public class GuideActivity extends BaseCommonActivity implements View.OnClickLis
     protected void initView() {
 
         hideStatsBar();//隐藏状态栏
-        //找控件
-//登录注册按钮
         bt_login_or_register = findViewById(R.id.bt_login_or_register);
-
-//注册按钮
         bt_enter = findViewById(R.id.bt_enter);
-//设置点击事件
-//设置登录注册按钮点击事件
         bt_login_or_register.setOnClickListener(this);
-
-//设置注册按钮点击事件
         bt_enter.setOnClickListener(this);
+        mFlContent = findViewById(R.id.fl_content);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fl_content, GuideFragment.newInstance())
+                .commit();
+
     }
 
     /**
@@ -67,12 +70,23 @@ public class GuideActivity extends BaseCommonActivity implements View.OnClickLis
         //所以这里需要区分到底是哪一个按钮点击
         switch (view.getId()) {
             case R.id.bt_login_or_register:
+                showGuide();
                 startActivity(LoginOrRegisterActivity.class);
                 break;
             case R.id.bt_enter:
-                //进入按钮
-                Log.d(TAG, "onClick enter");
+                //进入首页按钮
+                showGuide();
+                startActivity(MainActivity.class);
                 break;
         }
     }
+
+
+    //设置不在显示引导界面
+    private void showGuide() {
+
+        PreferenceUtil.getInstance(GuideActivity.this).setShowGuide(false);
+    }
+
+
 }

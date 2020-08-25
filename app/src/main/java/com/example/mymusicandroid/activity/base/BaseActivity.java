@@ -1,8 +1,11 @@
 package com.example.mymusicandroid.activity.base;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
+import com.example.mymusicandroid.util.PreferenceUtil;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * @author MW
@@ -12,6 +15,9 @@ import android.support.v7.app.AppCompatActivity;
  */
 
 public class BaseActivity extends AppCompatActivity {
+
+
+    protected PreferenceUtil mPreferenceUtil;//偏好设置实例
 
     /*
      * 找控件
@@ -24,7 +30,7 @@ public class BaseActivity extends AppCompatActivity {
      * 设置数据
      * */
     protected void initDatum() {
-
+        mPreferenceUtil = PreferenceUtil.getInstance(BaseActivity.this);
     }
 
     /*
