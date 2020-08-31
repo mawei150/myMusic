@@ -9,13 +9,15 @@ import android.widget.FrameLayout;
 
 import com.example.mymusicandroid.MainActivity;
 import com.example.mymusicandroid.R;
-import com.example.mymusicandroid.activity.base.BaseActivity;
 import com.example.mymusicandroid.activity.base.BaseCommonActivity;
 import com.example.mymusicandroid.adapter.GuideAdapter;
-import com.example.mymusicandroid.fragment.GuideFragment;
 import com.example.mymusicandroid.util.PreferenceUtil;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import androidx.viewpager.widget.ViewPager;
+import me.relex.circleindicator.CircleIndicator;
 
 /**
  * @author MW
@@ -32,6 +34,7 @@ public class GuideActivity extends BaseCommonActivity implements View.OnClickLis
     private FrameLayout mFlContent;
     private ViewPager mViewPager;
     private GuideAdapter mAdapter;
+    private CircleIndicator mIndicator;//指示器
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,21 @@ public class GuideActivity extends BaseCommonActivity implements View.OnClickLis
         //2.设置适配器
         mViewPager.setAdapter(mAdapter);
 
+        //指示器与ViewPager配合
+        mIndicator.setViewPager(mViewPager);
+        //适配器注册数据源观察者
+        mAdapter.registerDataSetObserver(mIndicator.getDataSetObserver());
+
+        //声明数据源
+        List<Integer> dataList = new ArrayList<>();
+        dataList.add(R.drawable.guide1);
+        dataList.add(R.drawable.guide2);
+        dataList.add(R.drawable.guide3);
+        dataList.add(R.drawable.guide4);
+        dataList.add(R.drawable.guide5);
+
+        mAdapter.setDatumList(dataList);
+
     }
 
     @Override
@@ -61,7 +79,7 @@ public class GuideActivity extends BaseCommonActivity implements View.OnClickLis
         bt_enter.setOnClickListener(this);
 //        mFlContent = findViewById(R.id.fl_content);
         mViewPager = findViewById(R.id.viewpager);
-
+        mIndicator = findViewById(R.id.circle);
 
 //        getSupportFragmentManager()
 //                .beginTransaction()
