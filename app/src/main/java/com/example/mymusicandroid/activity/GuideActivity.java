@@ -11,8 +11,11 @@ import com.example.mymusicandroid.MainActivity;
 import com.example.mymusicandroid.R;
 import com.example.mymusicandroid.activity.base.BaseActivity;
 import com.example.mymusicandroid.activity.base.BaseCommonActivity;
+import com.example.mymusicandroid.adapter.GuideAdapter;
 import com.example.mymusicandroid.fragment.GuideFragment;
 import com.example.mymusicandroid.util.PreferenceUtil;
+
+import androidx.viewpager.widget.ViewPager;
 
 /**
  * @author MW
@@ -27,6 +30,8 @@ public class GuideActivity extends BaseCommonActivity implements View.OnClickLis
     private Button bt_login_or_register;
     private Button bt_enter;
     private FrameLayout mFlContent;
+    private ViewPager mViewPager;
+    private GuideAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +43,11 @@ public class GuideActivity extends BaseCommonActivity implements View.OnClickLis
 
     @Override
     protected void initDatum() {
+        //1.创建适配器
+        mAdapter = new GuideAdapter(getSupportFragmentManager());
 
+        //2.设置适配器
+        mViewPager.setAdapter(mAdapter);
 
     }
 
@@ -50,12 +59,14 @@ public class GuideActivity extends BaseCommonActivity implements View.OnClickLis
         bt_enter = findViewById(R.id.bt_enter);
         bt_login_or_register.setOnClickListener(this);
         bt_enter.setOnClickListener(this);
-        mFlContent = findViewById(R.id.fl_content);
+//        mFlContent = findViewById(R.id.fl_content);
+        mViewPager = findViewById(R.id.viewpager);
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fl_content, GuideFragment.newInstance())
-                .commit();
+
+//        getSupportFragmentManager()
+//                .beginTransaction()
+//                .replace(R.id.fl_content, GuideFragment.newInstance(R.drawable.guide2))
+//                .commit();
 
     }
 
