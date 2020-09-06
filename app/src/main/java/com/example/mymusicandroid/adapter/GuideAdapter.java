@@ -1,6 +1,9 @@
 package com.example.mymusicandroid.adapter;
 
+import android.content.Context;
+
 import com.example.mymusicandroid.R;
+import com.example.mymusicandroid.adapter.base.BaseFragmentPagerAdapter;
 import com.example.mymusicandroid.fragment.GuideFragment;
 
 import java.util.ArrayList;
@@ -18,38 +21,17 @@ import androidx.fragment.app.FragmentPagerAdapter;
  * 描述：引导界面适配器
  */
 
-public class GuideAdapter extends FragmentPagerAdapter {
+public class GuideAdapter extends BaseFragmentPagerAdapter<Integer> {
 
     protected List<Integer> datumList = new ArrayList<>();
 
-    public GuideAdapter(@NonNull FragmentManager fm) {
-        super(fm);
+    public GuideAdapter(Context context, @NonNull FragmentManager fm) {
+        super(context, fm);
     }
 
     @NonNull
     @Override
     public Fragment getItem(int position) {
         return GuideFragment.newInstance(getData(position));
-    }
-
-    private int getData(int position) {
-
-        return datumList.get(position);
-    }
-
-
-    public void setDatumList(List<Integer> datumList) {
-        if (datumList != null && datumList.size() > 0) {
-            this.datumList.clear();
-            this.datumList.addAll(datumList);
-            //刷新数据源
-            notifyDataSetChanged();
-        }
-    }
-
-    //返回多少个
-    @Override
-    public int getCount() {
-        return datumList.size();
     }
 }

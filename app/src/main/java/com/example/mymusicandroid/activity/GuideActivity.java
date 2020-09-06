@@ -47,7 +47,7 @@ public class GuideActivity extends BaseCommonActivity implements View.OnClickLis
     @Override
     protected void initDatum() {
         //1.创建适配器
-        mAdapter = new GuideAdapter(getSupportFragmentManager());
+        mAdapter = new GuideAdapter(GuideActivity.this,getSupportFragmentManager());
 
         //2.设置适配器
         mViewPager.setAdapter(mAdapter);
