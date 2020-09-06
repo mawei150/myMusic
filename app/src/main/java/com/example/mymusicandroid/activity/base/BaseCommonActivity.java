@@ -1,15 +1,18 @@
 package com.example.mymusicandroid.activity.base;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
+
+import com.example.mymusicandroid.R;
+
+import butterknife.ButterKnife;
 
 
 public class BaseCommonActivity extends BaseActivity {
-
-
-
 
 
 
@@ -32,6 +35,57 @@ public class BaseCommonActivity extends BaseActivity {
             //设置到控件
             decorview.setSystemUiVisibility(options);
         }
+
+    }
+
+    @Override
+    protected void initView() {
+        super.initView();
+        //初始化注解找控件
+        //绑定方法框架
+        if (isBindView()) {
+            bindView();
+        }
+    }
+
+    /**
+     * 是否绑定View
+     *
+     * @return
+     */
+    protected boolean isBindView() {
+        return true;
+    }
+
+    /**
+     * 绑定View
+     */
+    protected void bindView() {
+        ButterKnife.bind(this);
+    }
+
+    protected void ListStatusBar() {
+
+        if (Build.VERSION.SDK_INT>=21){
+            Window window=getWindow();
+
+            //背景颜色设为透明
+            window.setStatusBarColor(Color.TRANSPARENT);
+
+            //去除半透明结果(如果有)
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+            //SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN：让内容显示到状态栏
+            //SYSTEM_UI_FLAG_LAYOUT_STABLE：状态栏文字显示白色
+            //SYSTEM_UI_FLAG_LIGHT_STATUS_BAR：状态栏文字显示黑色
+            window.getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            );
+
+
+        }
+
     }
 
 

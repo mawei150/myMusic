@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
  * @author MW
  * @date 2020/8/17
  * <p>
- * 描述：
+ * 描述： 基类
  */
 
 public class BaseActivity extends AppCompatActivity {

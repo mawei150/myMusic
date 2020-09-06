@@ -14,15 +14,15 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <!--状态栏透明-->
-    <style name="AppTheme.NoActionBar.StatusBarTransparent">
+    <!--&lt;!&ndash;状态栏透明&ndash;&gt;-->
+    <!--<style name="AppTheme.NoActionBar.StatusBarTransparent">-->
 
-    </style>
+    <!--</style>-->
 
-    <!--状态栏黑色-->
-    <style name="AppTheme.NoActionBar.StatusBarBlack">
+    <!--&lt;!&ndash;状态栏黑色&ndash;&gt;-->
+    <!--<style name="AppTheme.NoActionBar.StatusBarBlack">-->
 
-    </style>
+    <!--</style>-->
 
     <!--AppBarLayout样式-->
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
