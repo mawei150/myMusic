@@ -8,29 +8,29 @@
 
 
     <!--主要实现折叠的功能，但是这个路没用到-->
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        android:elevation="0dp">
+    <!--<com.google.android.material.appbar.AppBarLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:theme="@style/AppTheme.AppBarOverlay"-->
+    <!--android:elevation="0dp">-->
 
 
-   <androidx.appcompat.widget.Toolbar
-       android:id="@+id/toolbar"
-       android:layout_width="match_parent"
-       android:layout_height="?attr/actionBarSize"
-       android:background="?attr/colorPrimary"
-       app:popupTheme="@style/AppTheme.PopupOverlay"
-       />
-    </com.google.android.material.appbar.AppBarLayout>
+    <!--<androidx.appcompat.widget.Toolbar-->
+    <!--android:id="@+id/toolbar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="?attr/actionBarSize"-->
+    <!--android:background="?attr/colorPrimary"-->
+    <!--app:popupTheme="@style/AppTheme.PopupOverlay"-->
+    <!--/>-->
+    <!--</com.google.android.material.appbar.AppBarLayout>-->
 
-
+    <include layout="@layout/tool_bar" />
     <!--内容部分
   layout_behavior:用来控制内容区域-->
     <LinearLayout
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

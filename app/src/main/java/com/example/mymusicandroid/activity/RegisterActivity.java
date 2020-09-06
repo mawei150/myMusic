@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.example.mymusicandroid.R;
 import com.example.mymusicandroid.activity.base.BaseCommonActivity;
+import com.example.mymusicandroid.activity.base.BaseTitleActivity;
 
 import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
@@ -15,10 +16,10 @@ import butterknife.BindView;
  * 描述：注册页面
  */
 
-public class RegisterActivity extends BaseCommonActivity {
+public class RegisterActivity extends BaseTitleActivity {
 
-    @BindView(R.id.toolbar)
-    Toolbar mToolbar;
+//    @BindView(R.id.toolbar)
+//    Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +28,10 @@ public class RegisterActivity extends BaseCommonActivity {
     }
 
 
-    @Override
-    protected void initView() {
-        super.initView();
-
-        setSupportActionBar(mToolbar);
-    }
+//    @Override
+//    protected void initView() {
+//        super.initView();
+//
+//        setSupportActionBar(mToolbar);
+//    }
 }
