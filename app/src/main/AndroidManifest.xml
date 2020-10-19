@@ -13,7 +13,8 @@
         <activity android:name=".activity.RegisterActivity"
             android:label="@string/register"
             ></activity>
-        <activity android:name=".activity.LoginActivity" /> <!-- 登录注册界面 -->
+        <activity android:name=".activity.LoginActivity"
+            android:label="@string/login"/> <!-- 登录注册界面 -->
         <activity android:name=".activity.LoginOrRegisterActivity" />
         <activity android:name=".activity.GuideActivity" /> <!-- 启动界面 -->
         <activity android:name=".MainActivity" /> <!-- 主界面 -->
